@@ -12,6 +12,7 @@ def device_on(macaddress):
 
 @app.route("/device/off/<macaddress>", methods=['GET'])
 def device_off(macaddress):
+    switch_by_mac(mac_address, 'off')
     return macaddress + " is off"
 
 

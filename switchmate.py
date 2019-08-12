@@ -161,6 +161,20 @@ def get_state_handle(device):
         return BRIGHT_STATE_HANDLE
 
 
+def switch_by_mac(mac_address, state):
+    device = Peripheral(mac_address, ADDR_TYPE_RANDOM)
+    if state == 'on':
+        val = b'\x01'
+    else:
+        val = b'\x00'
+    if state == 'toggle':
+        val = None
+    try:
+        switch(device, val)
+    except BTLEException as ex:
+        print_exception(ex)
+
+
 def switch(device, val):
     state_handle = get_state_handle(device)
     curr_val = device.readCharacteristic(state_handle)
