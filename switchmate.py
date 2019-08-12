@@ -201,7 +201,7 @@ def print_entry_state(entry, state_handle=None):
 def return_entry_state(entry, state_handle=None):
     service_data = entry.getValueText(MANUFACTURER_DATA_AD_TYPE)
     val = int(service_data[1])
-    print(val + " " + service_data[1])
+    print(str(val) + " " + service_data[1])
     return ("0", "1")[val]
 
 
