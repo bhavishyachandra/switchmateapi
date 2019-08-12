@@ -1,5 +1,5 @@
 # Use an official Python runtime as an image
-FROM python:3.6
+FROM python:3.6-alpine
 
 # install machine level dependencies
 RUN apk add --no-cache \
