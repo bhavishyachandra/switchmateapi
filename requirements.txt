@@ -1,2 +1,4 @@
 Flask==1.1.1
-PySwitchmate==0.4.6
+bluepy==1.2.0
+docopt==0.6.2
+tabulate==0.8.2

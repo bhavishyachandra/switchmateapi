@@ -1,5 +1,5 @@
 from flask import Flask
-import switchmate
+from switchmate import *
 
 app = Flask(__name__)
 
@@ -16,7 +16,7 @@ def device_off(macaddress):
 
 @app.route("/devices", methods=['GET'])
 def devices():
-    switchmate.scan(
+    scan(
         'Scanning...',
         success_msg='Found Switchmates:',
         timeout=100,
