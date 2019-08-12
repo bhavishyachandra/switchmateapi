@@ -1,3 +1,4 @@
+import json
 from flask import Flask
 from switchmate import *
 
@@ -22,7 +23,7 @@ def devices():
         timeout=30,
         process_entry=lambda switchmate: print(switchmate.addr),
     )
-    return switchmates
+    return json.dumps(switchmates)
 
 
 if __name__ == '__main__':
