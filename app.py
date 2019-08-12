@@ -15,7 +15,7 @@ def device_off(macaddress):
 
 
 @app.route("/devices", methods=['GET'])
-def device_off(macaddress):
+def devices():
     switchmate.scan(
         'Scanning...',
         success_msg='Found Switchmates:',
