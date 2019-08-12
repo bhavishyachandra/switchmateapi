@@ -16,13 +16,13 @@ def device_off(macaddress):
 
 @app.route("/devices", methods=['GET'])
 def devices():
-    scan(
+    switchmates = scan(
         'Scanning...',
         success_msg='Found Switchmates:',
         timeout=30,
         process_entry=lambda switchmate: print(switchmate.addr),
     )
-    return "list of devices"
+    return switchmates
 
 
 if __name__ == '__main__':

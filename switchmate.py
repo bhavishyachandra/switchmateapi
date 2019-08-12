@@ -116,8 +116,11 @@ def scan(
             print(success_msg)
         for switchmate in switchmates:
             process_entry(switchmate)
+        return switchmates
     else:
-        print('No Switchmate devices found')
+        msg = 'No Switchmate devices found'
+        print(msg)
+        return msg
 
 
 def debug_helper(device):
