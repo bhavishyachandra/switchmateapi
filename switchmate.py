@@ -111,12 +111,14 @@ def scan(
         )
         return
 
+    switchmate_addresses = []
     if len(switchmates):
         if success_msg:
             print(success_msg)
         for switchmate in switchmates:
+            switchmate_addresses.append(switchmate.addr)
             process_entry(switchmate)
-        return switchmates
+        return switchmate_addresses
     else:
         msg = 'No Switchmate devices found'
         print(msg)
