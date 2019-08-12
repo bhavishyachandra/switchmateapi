@@ -19,7 +19,7 @@ def devices():
     scan(
         'Scanning...',
         success_msg='Found Switchmates:',
-        timeout=100,
+        timeout=30,
         process_entry=lambda switchmate: print(switchmate.addr),
     )
     return "list of devices"
