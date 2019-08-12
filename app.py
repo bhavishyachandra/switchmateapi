@@ -7,12 +7,13 @@ app = Flask(__name__)
 
 @app.route("/device/on/<macaddress>", methods=['GET'])
 def device_on(macaddress):
+    switch_by_mac(macaddress, 'on')
     return macaddress + " is on"
 
 
 @app.route("/device/off/<macaddress>", methods=['GET'])
 def device_off(macaddress):
-    switch_by_mac(mac_address, 'off')
+    switch_by_mac(macaddress, 'off')
     return macaddress + " is off"
 
 
