@@ -176,7 +176,7 @@ def switch_by_mac(mac_address, state):
 
 
 def status_by_mac(mac_address):
-    scan(
+    return scan(
         'Looking for switchmate status...',
         timeout=5,
         process_entry=return_entry_state,
