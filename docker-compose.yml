@@ -1,0 +1,16 @@
+version: "3"
+services:
+  switchmateapiserver:
+    build: code
+    ports:
+      - "80:80"
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    restart: always
+    cap_add:
+      - SYS_ADMIN
+    network_mode: "host"
+    environment:
+      - PYTHONUNBUFFERED=1
+    privileged: true
