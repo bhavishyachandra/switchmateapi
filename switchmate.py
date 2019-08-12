@@ -86,8 +86,8 @@ def get_switchmates(scan_entries, mac_address):
 
 
 def scan(
-    start_msg, process_entry,
-    timeout=None, mac_address=None, success_msg=None
+    start_msg='', process_entry=None,
+    timeout=None, mac_address=None, success_msg=None, return_status=False
 ):
     print(start_msg)
     sys.stdout.flush()
@@ -117,7 +117,10 @@ def scan(
             print(success_msg)
         for switchmate in switchmates:
             switchmate_addresses.append(switchmate.addr)
-            process_entry(switchmate)
+            if(return_status):
+                return return_entry_state(switchmate)
+            elif(process_entry):
+                process_entry(switchmate)
         return switchmate_addresses
     else:
         msg = 'No Switchmate devices found'
@@ -173,15 +176,6 @@ def switch_by_mac(mac_address, state):
         switch(device, val)
     except BTLEException as ex:
         print_exception(ex)
-
-
-def status_by_mac(mac_address):
-    return scan(
-        'Looking for switchmate status...',
-        timeout=5,
-        process_entry=return_entry_state,
-        mac_address=mac_address,
-    )
 
 
 def switch(device, val):

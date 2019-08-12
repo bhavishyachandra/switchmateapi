@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/device/status/<macaddress>", methods=['GET'])
 def device_status(macaddress):
-    return json.dumps(status_by_mac(macaddress))
+    return json.dumps(scan(mac_address=macaddress, return_status=True))
 
 
 @app.route("/device/on/<macaddress>", methods=['GET'])
