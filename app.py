@@ -5,6 +5,11 @@ from switchmate import *
 app = Flask(__name__)
 
 
+@app.route("/device/status/<macaddress>", methods=['GET'])
+def device_status(macaddress):
+    return status_by_mac(macaddress)
+
+
 @app.route("/device/on/<macaddress>", methods=['GET'])
 def device_on(macaddress):
     switch_by_mac(macaddress, 'on')

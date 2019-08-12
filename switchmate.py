@@ -175,6 +175,15 @@ def switch_by_mac(mac_address, state):
         print_exception(ex)
 
 
+def status_by_mac(mac_address):
+    scan(
+        'Looking for switchmate status...',
+        timeout=5,
+        process_entry=return_entry_state,
+        mac_address=mac_address,
+    )
+
+
 def switch(device, val):
     state_handle = get_state_handle(device)
     curr_val = device.readCharacteristic(state_handle)
@@ -193,6 +202,12 @@ def print_entry_state(entry, state_handle=None):
     service_data = entry.getValueText(MANUFACTURER_DATA_AD_TYPE)
     val = int(service_data[1])
     print(entry.addr, ("off", "on")[val])
+
+
+def return_entry_state(entry, state_handle=None):
+    service_data = entry.getValueText(MANUFACTURER_DATA_AD_TYPE)
+    val = int(service_data[1])
+    return ("0", "1")[val]
 
 
 def print_battery_level(device):
