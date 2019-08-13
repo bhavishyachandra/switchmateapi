@@ -7,7 +7,6 @@ RUN apk add --no-cache \
     && apk add --no-cache gcc musl-dev cmake make
 
 # The EXPOSE instruction indicates the ports on which a container # # will listen for connections
-# Since Flask apps listen to port 5000  by default, we expose it
 EXPOSE 80
 
 # Sets the working directory for following COPY and CMD instructions
