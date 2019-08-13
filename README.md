@@ -1,6 +1,6 @@
 # Switchmate API
 
-A restful API wrapper around switchmate bluetooth switcher
+A restful API wrapper for switchmate bluetooth switches
 
 ### Instructions to install:
 
